@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      
+xmlns:p="http://primefaces.org/ui"
+    
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:fieldset>
+            <h:panelGrid columns="2" id="grid">
+                <h:column>
+                    
+                    Pedido
+                </h:column>
+                <h:column>
+                    <p:inputText value="#{principalBean.pedidoSelected.nome}"></p:inputText>
+                 </h:column>
+                
+                <h:column>
+                    
+                    Status
+                </h:column>
+                <h:column>
+                    <p:inputText value="#{principalBean.pedidoSelected.quantidade}"></p:inputText>
+                 </h:column>
+                
+            </h:panelGrid>
+            <p:commandButton value="Add" action="#{principalBean.add()}" update="prods grid"></p:commandButton>
+            <p:commandButton value="Limpar" action="#{principalBean.limpaTabela()}" update="prods grid"></p:commandButton>         
+            
+            <p:dataTable value="#{principalBean.pedidos}" var="p" id="prods" emptyMessage="Nenhum pedido cadastrado">
+                <p:column headerText="Cod">
+                    <h:outputText value="#{p.id_pedido}"></h:outputText>
+                </p:column>
+                
+                <p:column headerText="Pedido">
+                    <h:outputText value="#{p.nome}"></h:outputText>    
+                </p:column>
+            
+                <p:column headerText="Status">
+                /**Usar status da Tabela Status**/
+                </p:column>
+                
+                <p:column>
+                    <p:commandButton value="Aceitar" action="#{principalBean.drop()}" update="prods">
+                        <f:setPropertyActionListener value="{p}" target="#{principalBean.pedidoSelected}"></f:setPropertyActionListener>
+                    </p:commandButton>   
+                </p:column>
+                
+                <p:column>
+                    <p:commandButton value="Finalizar" action="#{principalBean.drop()}" update="prods">
+                        <f:setPropertyActionListener value="{p}" target="#{principalBean.pedidoSelected}"></f:setPropertyActionListener>
+                    </p:commandButton>   
+                </p:column>
+            
+            </p:dataTable>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+</html>
+
