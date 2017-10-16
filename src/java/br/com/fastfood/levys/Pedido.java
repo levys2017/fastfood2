@@ -14,6 +14,8 @@ public class Pedido {
     private float valor;
     private float soma_parc;
     private String forma_pagamento;
+    private int status;// 0 - aguardando; 1 - recebido 2 - pronto
+    
 
     public int getId_pedido() {
         return id_pedido;

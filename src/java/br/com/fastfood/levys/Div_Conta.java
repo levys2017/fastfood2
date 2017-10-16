@@ -5,7 +5,7 @@ public class Div_Conta {
     private int id_div_conta;
     private Pedido id_pedido;
     private char cpf;
-    private float valor;
+    private float valor_total;
 
     public int getId_div_conta() {
         return id_div_conta;
@@ -31,12 +31,14 @@ public class Div_Conta {
         this.cpf = cpf;
     }
 
-    public float getValor() {
-        return valor;
+    public float getValor_total() {
+        return valor_total;
     }
 
-    public void setValor(float valor) {
-        this.valor = valor;
+    public void setValor_total(float valor_total) {
+        this.valor_total = valor_total;
     }
+
+    
     
 }
